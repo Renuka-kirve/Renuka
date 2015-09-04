@@ -30,6 +30,7 @@ var module1 = function() {
     }
 }
 
+
 // Export module.
 module.exports = new module1();
 

@@ -1,7 +1,7 @@
 /**
  * Module/class which provides bunch of utility methods to perform operations on JSON.
  *
- * @author Renuka Kirve, Mindstix Labs.
+ * @author Hardik Patel, Mindstix Labs.
  */
 
 var JsonUtils = function() {
@@ -30,7 +30,6 @@ var JsonUtils = function() {
         catch (error) {
             return false;
         }
-        
         return true;
     }
     /**

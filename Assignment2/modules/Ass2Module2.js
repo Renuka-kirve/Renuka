@@ -4,11 +4,10 @@
  * @author Renuka Kirve, Mindstix Labs.
  */
 
-var module2= function() {
+ var module2= function() {
 
     // Public functions.
     this.sortJsonObject = sortJsonObject;
-
     /**
     * Function to sort JSON objects.
     *
@@ -26,7 +25,6 @@ var module2= function() {
         }
         return 0;
     }
-
 }
 
 // Export module.

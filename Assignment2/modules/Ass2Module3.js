@@ -20,13 +20,17 @@ var module3 = function() {
      */
     function writeJsonToFile(filepath,jsonObject)
     {
-        var writeStream = fs.createWriteStream(filepath);
-        writeStream.write("Id\t|firstName\t|LastName\t|Score");
-        for(var i=0;i<jsonObject.students.length;i++) //Write json into file 
+        var fileStr="Id\t|firstName\t|LastName\t|Score \n";
+        for(var i=0;i<jsonObject.students.length;i++) 
         {
-            writeStream.write("\r\n"+jsonObject.students[i].id+"\t|"+jsonObject.students[i].fName+"\t\t|"+jsonObject.students[i].lName+"\t\t|"+jsonObject.students[i].score+"");
+            fileStr=fileStr+jsonObject.students[i].id+"\t|"+jsonObject.students[i].fName+"\t\t|"+jsonObject.students[i].lName+"\t\t|"+jsonObject.students[i].score+"\n";
         }
-        console.log("JsonObject successfully written to specified txt file");
+        fs.writeFile(filepath,fileStr,function txtFileError(error){
+            if(error) {
+                console.log(error);
+            }
+            console.log("JsonObject successfully written to specified txt file");
+        });
     }
 } 
 // Export module.

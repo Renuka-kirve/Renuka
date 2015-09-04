@@ -12,6 +12,7 @@ var module1= require("./modules/Ass2Module1.js");
 var module2= require("./modules/Ass2Module2.js");
 var module3= require("./modules/Ass2Module3.js");
 var module4= require("./modules/Ass2Module4.js");
+
 try
 {
     console.log("\n Source JSON file path: " + constants.SOURCE_JSON_FILE);
@@ -30,6 +31,16 @@ try
                 console.log("\n Error reading source JSON file.");
                 return;
             }
+            if (!jsonUtils.isValidJson(readResponse)) {
+
+                console.log("\n Source JSON file is invalid.");
+                return;
+            } 
+            if (jsonUtils.isJsonObjectEmpty(readResponse)) {
+
+                console.log("\n Source JSON file is empty.");
+                return;
+            }
 			//___________________________________ Module 1 Result _________________________________________
             module1.returnJsonObject(constants.SOURCE_JSON_FILE, function handleFileObjectResponse(error, response) {
 
@@ -41,7 +52,8 @@ try
             	console.log("jsonobject returning from module1:"+JSON.stringify(response));
             //___________________________________ Module 2 Result _________________________________________
             	
-		response.students.sort(module2.sortJsonObject);
+            	response.students.sort(module2.sortJsonObject);
+
                 console.log("Sorted jsonobject returning from module2:"+JSON.stringify(response));
 
                 

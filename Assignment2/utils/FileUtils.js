@@ -1,7 +1,7 @@
 /**
  * Module/class which provides bunch of utility methods to perform operations on file.
  *
- * @author Renuka Kirve, Mindstix Labs.
+ * @author Hardik Patel, Mindstix Labs.
  */
 
 
@@ -42,7 +42,14 @@ var FileUtils = function() {
 
     function isFileEmpty(filePath) {
 
-     	   if(fs.isEmptySync(filePath))
+        /*fs.isEmpty(filePath, function (empty){
+            if(empty)
+            {
+                return true;
+            }
+            return false;
+        });*/
+        if(fs.isEmptySync(filePath))
         {
             return true;
         }
